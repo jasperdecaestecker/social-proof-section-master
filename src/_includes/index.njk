@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta
+        name="viewport" content="width=device-width, initial-scale=1.0"/> <!-- displays site properly based on user's device -->
+        <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@400;500;700&display=swap" rel="stylesheet">
+        <title>{{ title }}</title>
+        <link rel="stylesheet" href="/css/styles.css"/>
+    </head>
+    <body>
+        <main>
+            <div class="container">
+                <h1>10,000+ of our users love our products.</h1>
+                <p>
+                    We only provide great products combined with excellent customer service. See what our satisfied customers are saying
+                    about our services.
+                </p>
+                <div class="ratings">
+                    {% for rating in ratings %}
+                        <div class="rating">
+                            <span class="rating__stars">
+                                {% for star in range(0, rating.stars) %}
+                                    <img src="./images/icon-star.svg" alt="star image">
+                                {% endfor %}
+                            </span>
+                            Rated {{ rating.stars }} Stars in {{ rating.source }}
+                        </div>
+                    {% endfor %}
+                </div>
+                {% for review in reviews %}
+                    {{ review.imgsrc }}
+                    {{ review.name }} Verified Buyer {{ review.text }}
+                {% endfor %}
+            </div>
+        </main>
+    </body>
+</html>
